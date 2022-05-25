@@ -36,7 +36,7 @@ function App() {
       <div class="container-fluid">
         <div class="row">
           <div id="person" class="col-2">
-            <div id="new-post" onClick={() => setModalShow(true)} class="rounded-circle bg-dark text-center">
+            <div id="new-post" onClick={() => setModalShow(true)} class="rounded-circle bg-dark text-center mx-auto">
 
               <IconContext.Provider value={{ color: "white", className: "new-post", size: "1.5em", title: "New post" }}>
                 <BsPlusLg />
