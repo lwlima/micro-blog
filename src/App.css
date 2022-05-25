@@ -10,3 +10,20 @@
 .secondary {
   color: #c2c4c6;
 }
+
+footer {
+  background-color: #f3f4f6;
+  padding: 2em 0 2em 0;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer a.trapi {
+  color: #240088;
+}
+
+footer p {
+  margin: 0;
+}
