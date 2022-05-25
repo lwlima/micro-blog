@@ -19,7 +19,6 @@ function NewPostModal(props) {
 
   function handleChange(event){
       setText(event.target.value);
-      console.log(text.length);
   }
 
   return (
