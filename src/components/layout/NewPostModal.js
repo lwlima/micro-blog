@@ -7,7 +7,7 @@ let NewPostModal = props => {
   const MAXCHAR = 200;
 
   let handleKeyPress = event => {
-    if (text.length == MAXCHAR && event.key != "Backspace")
+    if (text.length === MAXCHAR && event.key !== "Backspace")
       event.preventDefault();
   }
 
