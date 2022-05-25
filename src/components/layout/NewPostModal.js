@@ -23,7 +23,7 @@ let NewPostModal = props => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <textarea id="text-post" onChange={handleChange} onKeyPress={handleKeyPress} value={text} class="col-12" rows="7" placeholder="O que está acontecendo?"></textarea>
+        <textarea id="text-post" onChange={handleChange} onKeyPress={handleKeyPress} value={text} className="col-12" rows="7" placeholder="O que está acontecendo?"></textarea>
       </Modal.Body>
       <Modal.Footer>
         <p>{200 - text.length} Caracteres restantes</p>
