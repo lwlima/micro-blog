@@ -1,10 +1,11 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BsPlusLg, BsPersonFill } from "react-icons/bs";
+import { BsPlusLg } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { useState } from 'react';
 import NewPostModal from './components/layout/NewPostModal'
 import Footer from './components/layout/Footer'
+import Post from './components/layout/Post'
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
@@ -26,45 +27,9 @@ function App() {
           <div id="content" class="col-10">
             <div class="row border">
               <div class="col-12">
-                <div class="row border-top border-bottom">
-                  <div class="col-2 text-center">
-                    <IconContext.Provider value={{ color: "black", className: "sla", size: "1.5em", title: "Avatar" }}>
-                      <BsPersonFill />
-                    </IconContext.Provider>
-                  </div>
-                  <div class="col-10">
-                    <p><b>Nickname</b> <span class="secondary">- 1h</span></p>
-                    <p>Nullam a tincidunt dolor. Aenean et porta mauris, eget venenatis odio. Sed vel
-                      fermentum ipsum. Curabitur laoreet felis purus, quis efficitur felis semper a. Praesent orci aliquam.
-                    </p>
-                  </div>
-                </div>
-                <div class="row border-top border-bottom">
-                  <div class="col-2 text-center">
-                    <IconContext.Provider value={{ color: "black", className: "sla", size: "1.5em", title: "Avatar" }}>
-                      <BsPersonFill />
-                    </IconContext.Provider>
-                  </div>
-                  <div class="col-10">
-                    <p><b>Nickname</b> <span class="secondary">- 1h</span></p>
-                    <p>Nullam a tincidunt dolor. Aenean et porta mauris, eget venenatis odio. Sed vel
-                      fermentum ipsum. Curabitur laoreet felis purus, quis efficitur felis semper a. Praesent orci aliquam.
-                    </p>
-                  </div>
-                </div>
-                <div class="row border-top border-bottom">
-                  <div class="col-2 text-center">
-                    <IconContext.Provider value={{ color: "black", className: "sla", size: "1.5em", title: "Avatar" }}>
-                      <BsPersonFill />
-                    </IconContext.Provider>
-                  </div>
-                  <div class="col-10">
-                    <p><b>Nickname</b> <span class="secondary">- 1h</span></p>
-                    <p>Nullam a tincidunt dolor. Aenean et porta mauris, eget venenatis odio. Sed vel
-                      fermentum ipsum. Curabitur laoreet felis purus, quis efficitur felis semper a. Praesent orci aliquam.
-                    </p>
-                  </div>
-                </div>
+                <Post />
+                <Post />
+                <Post />
               </div>
             </div>
           </div>
