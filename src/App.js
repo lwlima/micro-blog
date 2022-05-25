@@ -3,15 +3,41 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsPlusLg, BsPersonFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
+import { useState } from 'react';
+
+function NewPostModal(props) {
+  return (
+    <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Nova postagem
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <textarea class="col-12" rows="7" placeholder="O que está acontecendo?"></textarea>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button>Postar</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
 function App() {
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <div>
+      <NewPostModal show={modalShow} onHide={() => setModalShow(false)} />
+
       <h1 class="text-center">Micro Blog</h1>
       <div class="container-fluid">
         <div class="row">
           <div id="person" class="col-2">
-            <div id="new-post" class="rounded-circle bg-dark text-center">
+            <div id="new-post" onClick={() => setModalShow(true)} class="rounded-circle bg-dark text-center">
+
               <IconContext.Provider value={{ color: "white", className: "new-post", size: "1.5em", title: "New post" }}>
                 <BsPlusLg />
               </IconContext.Provider>
