@@ -4,6 +4,7 @@ import { BsPlusLg, BsPersonFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { useState } from 'react';
 import NewPostModal from './components/layout/NewPostModal'
+import Footer from './components/layout/Footer'
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
@@ -17,7 +18,6 @@ function App() {
         <div class="row">
           <div id="person" class="col-2">
             <div id="new-post" onClick={() => setModalShow(true)} class="rounded-circle bg-dark text-center mx-auto">
-
               <IconContext.Provider value={{ color: "white", className: "new-post", size: "1.5em", title: "New post" }}>
                 <BsPlusLg />
               </IconContext.Provider>
@@ -70,10 +70,7 @@ function App() {
           </div>
         </div>
       </div>
-      <footer class="text-center">
-        <p>Teste prático - <a target="_blank" class="trapi" href="www.trapi.com.br">Trapi</a></p>
-        <p>Desenvolvido por <a target="_blank" href="www.lucianolima.dev">Luciano Lima</a></p>
-      </footer>
+    <Footer />
     </div>
   );
 }
