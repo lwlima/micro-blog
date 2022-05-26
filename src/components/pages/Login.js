@@ -15,7 +15,6 @@ let Login = () => {
   let handleChange = event => {
     input[event.target.name] = event.target.value;
     setInput(input);
-    console.log(input);
   }
 
   let handleSubmit = event => {
