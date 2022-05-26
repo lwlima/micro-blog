@@ -1,14 +1,10 @@
 import Post from './../layout/Post';
 import { useState, useEffect } from 'react';
-import { BsPlusLg } from "react-icons/bs";
-import { IconContext } from "react-icons";
-import NewPostModal from './../layout/NewPostModal';
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import Navbar from './../layout/Navbar';
 
 let Feed = () => {
-  const [modalShow, setModalShow] = useState(false);
   const [post, setPost] = useState([]);
-
 
   useEffect(() => {
     fetch('api/api.php')
@@ -23,16 +19,11 @@ let Feed = () => {
 
   return (
     <section id="feed">
-      <NewPostModal show={modalShow} onHide={() => setModalShow(false)} />
       <h1 className="text-center">Micro Blog</h1>
       <Container fluid>
         <Row>
           <Col xs={2} id="person">
-            <Button id="new-post" onClick={() => setModalShow(true)} className="rounded-circle bg-dark">
-              <IconContext.Provider value={{ color: "white", size: "1.5em", title: "New post" }}>
-                <BsPlusLg />
-              </IconContext.Provider>
-            </Button>
+          <Navbar />
           </Col>
           <Col xs={10} id="content">
             <Row className="border">
