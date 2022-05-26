@@ -8,7 +8,7 @@ import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import { createBrowserHistory } from 'history';
 
 function App() {
 
@@ -21,10 +21,12 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
-
       <Footer />
     </div>
   );
 }
 
+export const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL
+});
 export default App;
