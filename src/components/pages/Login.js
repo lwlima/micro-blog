@@ -31,9 +31,13 @@ let Login = () => {
         throw new Error('Erro ao logar no sistema, tente novamente.')
       })
       .then(function (text) {
-        setAlertMessage(text);
-        setAlertType('success');
-        setAlertShow(true);
+        if(text === '/')
+          window.location.href = text;
+        else{
+          setAlertMessage(text);
+          setAlertType('danger');
+          setAlertShow(true);
+        }
       })
       .catch(function (error) {
         setAlertMessage(error);
