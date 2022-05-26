@@ -21,7 +21,7 @@ let NewPostModal = props => {
 
     let formData = new FormData();
     formData.append('text', text);
-    formData.append('author', 'nickname');
+    formData.append('author', sessionStorage.getItem('author'));
 
     fetch(`api/api.php/`, {
       method: 'POST',
