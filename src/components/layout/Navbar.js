@@ -14,7 +14,7 @@ let Navbar = () => {
       <Nav.Link href="/login">Login</Nav.Link>
       <Nav.Link href="/register">Registrar</Nav.Link>
 
-      <Button id="new-post" onClick={() => setModalShow(true)} className="rounded-circle bg-dark mx-auto mt-5 mb-5">
+      <Button id="new-post" onClick={() => setModalShow(true)} className="rounded-circle bg-primary mx-auto mt-5 mb-5">
         <IconContext.Provider value={{ color: "white", size: "1.5em", title: "New post" }}>
           <BsPlusLg />
         </IconContext.Provider>
