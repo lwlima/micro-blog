@@ -1,11 +1,17 @@
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import { useState } from 'react';
+import { BsWindowSidebar } from "react-icons/bs";
 
 let Register = () => {
   const [input, setInput] = useState([{nick: '', email: '', password: ''}]);
   const [alertShow, setAlertShow] = useState(false);
   const [alertMessage, setAlertMessage] = useState();
   const [alertType, setAlertType] = useState();
+
+  let isLogged = sessionStorage.getItem('isLogged');
+  if (isLogged) {
+    window.location = "/"
+  }
 
   let handleChange = event => {
     input[event.target.name] = event.target.value;
@@ -34,6 +40,9 @@ let Register = () => {
         setAlertMessage(text);
         setAlertType('success');
         setAlertShow(true);
+        setTimeout(function(){
+          window.location.href = '/login';
+      },2000);
       })
       .catch(function (error) {
         setAlertMessage(error);

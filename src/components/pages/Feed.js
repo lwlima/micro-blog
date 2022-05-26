@@ -6,6 +6,11 @@ import Navbar from './../layout/Navbar';
 let Feed = () => {
   const [post, setPost] = useState([]);
 
+  let isLogged = sessionStorage.getItem('isLogged');
+  if (!isLogged) {
+    window.location.href = "/login"
+  }
+
   useEffect(() => {
     fetch('api/api.php')
       .then(function (response) {

@@ -7,6 +7,11 @@ let Login = () => {
   const [alertMessage, setAlertMessage] = useState();
   const [alertType, setAlertType] = useState();
 
+  let isLogged = sessionStorage.getItem('isLogged');
+  if (isLogged) {
+    window.location.href = "/"
+  }
+
   let handleChange = event => {
     input[event.target.name] = event.target.value;
     setInput(input);
@@ -26,15 +31,19 @@ let Login = () => {
     })
       .then(function (response) {
         if (response.ok)
-          return response.text();
+          return response.json();
 
         throw new Error('Erro ao logar no sistema, tente novamente.')
       })
-      .then(function (text) {
-        if(text === '/')
-          window.location.href = text;
-        else{
-          setAlertMessage(text);
+      .then(function (data) {
+        if (Array.isArray(data)) {
+          window.sessionStorage.setItem("isLogged", true);
+          window.sessionStorage.setItem("author", data[0].nick);
+
+          window.location.href = '/';
+        }
+        else {
+          setAlertMessage(data);
           setAlertType('danger');
           setAlertShow(true);
         }
