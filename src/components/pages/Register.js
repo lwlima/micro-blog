@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BsWindowSidebar } from "react-icons/bs";
 
 let Register = () => {
-  const [input, setInput] = useState([{nick: '', email: '', password: ''}]);
+  const [input, setInput] = useState([{ nick: '', email: '', password: '' }]);
   const [alertShow, setAlertShow] = useState(false);
   const [alertMessage, setAlertMessage] = useState();
   const [alertType, setAlertType] = useState();
@@ -40,9 +40,9 @@ let Register = () => {
         setAlertMessage(text);
         setAlertType('success');
         setAlertShow(true);
-        setTimeout(function(){
+        setTimeout(function () {
           window.location.href = '/login';
-      },2000);
+        }, 2000);
       })
       .catch(function (error) {
         setAlertMessage(error);
@@ -53,11 +53,12 @@ let Register = () => {
 
   return (
     <section id="register">
+      <h1 className="text-center">Registrar</h1>
       <Container>
         <Row>
           <Col xs={9} className="mx-auto">
             <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="nick">
+              <Form.Group className="mb-3" controlId="nick">
                 <Form.Label>Nick</Form.Label>
                 <Form.Control type="text" name="nick" onChange={handleChange} value={input[1]} placeholder="Digite seu nick" />
               </Form.Group>

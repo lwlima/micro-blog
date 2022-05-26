@@ -56,6 +56,7 @@ let Login = () => {
 
   return (
     <section id="login">
+      <h1 className="text-center">Login</h1>
       <Container>
         <Row>
           <Col xs={9} className="mx-auto">
