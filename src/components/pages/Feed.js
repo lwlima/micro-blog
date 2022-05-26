@@ -1,5 +1,5 @@
 import Post from './../layout/Post';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsPlusLg } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import NewPostModal from './../layout/NewPostModal';
@@ -7,6 +7,19 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 
 let Feed = () => {
   const [modalShow, setModalShow] = useState(false);
+  const [post, setPost] = useState([]);
+
+
+  useEffect(() => {
+    fetch('api/api.php')
+      .then(function (response) {
+        if (response.ok)
+          return response.json();
+      })
+      .then((data) => {
+        setPost(data);
+      })
+  }, []);
 
   return (
     <section id="feed">
@@ -24,9 +37,9 @@ let Feed = () => {
           <Col xs={10} id="content">
             <Row className="border">
               <Col xs={12} className="col-12">
-                <Post />
-                <Post />
-                <Post />
+                {post.map((posts) =>
+                  <Post text={posts.text} author={posts.author} date={posts.date} />
+                )}
               </Col>
             </Row>
           </Col>
