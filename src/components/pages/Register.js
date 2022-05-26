@@ -1,8 +1,11 @@
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import { useState } from 'react';
 
 let Register = () => {
   const [input, setInput] = useState([{nick: '', email: '', password: ''}]);
+  const [alertShow, setAlertShow] = useState(false);
+  const [alertMessage, setAlertMessage] = useState();
+  const [alertType, setAlertType] = useState();
 
   let handleChange = event => {
     input[event.target.name] = event.target.value;
@@ -28,10 +31,14 @@ let Register = () => {
         throw new Error('Erro ao registrar usuário, tente novamente.')
       })
       .then(function (text) {
-
+        setAlertMessage(text);
+        setAlertType('success');
+        setAlertShow(true);
       })
       .catch(function (error) {
-
+        setAlertMessage(error);
+        setAlertType('danger');
+        setAlertShow(true);
       })
   }
 
@@ -56,10 +63,13 @@ let Register = () => {
                 <Form.Control type="password" name="password" onChange={handleChange} value={input[3]} placeholder="Digite sua Senha" />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" className="mb-3">
                 Registrar
               </Button>
             </Form>
+            <Alert variant={alertType} show={alertShow} onClose={() => setAlertShow(false)} dismissible>
+              {alertMessage}
+            </Alert>
           </Col>
         </Row>
       </Container>
